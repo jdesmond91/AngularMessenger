@@ -3,6 +3,8 @@ var router = express.Router();
 var User = require('../models/user'); // import our User model
 
 /* GET home page. */
+
+// anything outside of the callback function won't have access to the data because it is async
 router.get('/', function(req, res, next) {
     // {} pulls the first one in the DB
     User.findOne({}, function(err, doc) {
